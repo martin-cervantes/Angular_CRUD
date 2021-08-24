@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "name": "Jabon Escudo",
+      "description": "Jabon para lavar el cuerpo",
+      "available": true,
+      "id": 1
+    },
+    {
+      "name": "Sabritones",
+      "description": "Botana para fiestas",
+      "available": false,
+      "id": 2
+    }
+  ]
+}
