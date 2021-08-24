@@ -1,0 +1,67 @@
+<div style="width: 500px; margin: auto;">
+  <div *ngIf="currentProduct" class="edit-form">
+    <h4>Product</h4>
+
+    <form>
+      <div class="form-group">
+        <label for="title" class="form-label my-2">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="currentProduct.name"
+          name="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description" class="form-label my-2">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentProduct.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="from-label my-2">Status: {{ currentProduct.available }}</label>
+
+      </div>
+    </form>
+
+    <button
+      class="btn btn-warning mx-2"
+      *ngIf="currentProduct.available"
+      (click)="setAvailableStatus(false)"
+    >
+      Set Not Available
+    </button>
+
+    <button
+      *ngIf="!currentProduct.available"
+      class="btn btn-primary mx-2"
+      (click)="setAvailableStatus(true)"
+    >
+      Set Available
+    </button>
+
+    <button class="btn btn-danger mx-2" (click)="deleteProduct()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      (click)="updateProduct()"
+    >
+      Update
+    </button>
+  </div>
+
+  <div *ngIf="!currentProduct">
+    <br />
+    <p>This product is not accessible</p>
+  </div>
+</div>
